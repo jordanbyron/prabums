@@ -6,8 +6,10 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title><%= yield(:title) %></title>
     
+    <!-- Defaults -->
+    <%= javascript_include_tag :defaults %>
+    
     <%= stylesheet_link_tag 'default' %>
-    <%= stylesheet_link_tag 'tabs' %>
   </head>
   <body>
     <div id='outer_container'>
@@ -15,7 +17,6 @@
       <div id='header'>
       <%= image_tag 'prabums_icon.png' %><h1>prabums</h1>
       </div>
-      <div id="top_navigation"><%= render :partial => 'users/user_bar' %></div><%= navigation [:work_orders, :users, :buildings] %>
       <div id='contents'>
         <%= yield  %>
         <div id="footer">

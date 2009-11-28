@@ -57,25 +57,30 @@ min-height: 100%
 #footer{
 	color: #babbbb;
 	font-size: 10px;
-	position: fixed;
-	bottom: 0px;
-	width: 950px;
-	margin-left: 20px;
-	padding-left: 15px;
-	padding-right: 15px;
+	width: 910px;
+	padding-top: 20px;
+	border-top: 1px solid #797979;
+	margin-top: 20px;
+}
+
+#footer a img{
+	border-style: none;
 }
 
 #footer img{
-	margin-right: 15px;
 	float: right;
-	margin-bottom: 5px;
 }
 
 #contents{
-	background-color: #424343;
+	background-color: #404141;
 	padding: 20px;
 	border-style: none;
 	color: #fffeff;
+}
+
+#contents input, select{
+	font-size:14px;
+	padding:3px;
 }
 
 div.header{
@@ -84,14 +89,36 @@ div.header{
 	margin: -20px -20px 20px;
 	background: #048ce1}
 
+div.column_1, div.column_2, div.column_3{
+	width: 300px;
+ 	float: left;
+}
+
+div.footer{
+	clear: both;
+	background-color: #7e7e7e;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+}
+
+div.footer a{
+	color: #fffeff;
+	margin-left: 5px;
+}
+
+div.footer input{
+	font-size: 14px;
+}
+
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
+a { color: silver; }
+a:visited { color: silver; }
 a:hover { color: #fff; }
 
 .fieldWithErrors {

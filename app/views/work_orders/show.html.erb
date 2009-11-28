@@ -1,0 +1,48 @@
+<p>
+  <b>First name:</b>
+  <%=h @work_order.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @work_order.last_name %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%=h @work_order.phone_number %>
+</p>
+
+<p>
+  <b>Building:</b>
+  <%=h @work_order.building_id %>
+</p>
+
+<p>
+  <b>Room number:</b>
+  <%=h @work_order.room_number %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @work_order.email %>
+</p>
+
+<p>
+  <b>Location of problem:</b>
+  <%=h @work_order.location_of_problem %>
+</p>
+
+<p>
+  <b>Problem:</b>
+  <%=h @work_order.problem %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @work_order.status_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_work_order_path(@work_order) %> |
+<%= link_to 'Back', work_orders_path %>

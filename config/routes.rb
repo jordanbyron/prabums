@@ -1,4 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :notes
+
+  map.resources :statuses
+
+  map.home '/', :controller => :work_orders, :action => :new
+  map.thank_you '/thank_you', :controller => :work_orders, :action => :thank_you
+  
+  map.resources :work_orders
+
   map.resources :buildings
 
   

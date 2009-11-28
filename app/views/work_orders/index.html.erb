@@ -1,0 +1,40 @@
+<% title 'Work Orders' %>
+
+<% header do %>
+<h1>Work Orders</h1>
+<% end %>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Phone number</th>
+    <th>Building</th>
+    <th>Room number</th>
+    <th>Email</th>
+    <th>Location of problem</th>
+    <th>Problem</th>
+    <th>Status</th>
+  </tr>
+
+<% @work_orders.each do |work_order| %>
+  <tr>
+    <td><%=h work_order.first_name %></td>
+    <td><%=h work_order.last_name %></td>
+    <td><%=h work_order.phone_number %></td>
+    <td><%=h work_order.building_id %></td>
+    <td><%=h work_order.room_number %></td>
+    <td><%=h work_order.email %></td>
+    <td><%=h work_order.location_of_problem %></td>
+    <td><%=h work_order.problem %></td>
+    <td><%=h work_order.status_id %></td>
+    <td><%= link_to 'Show', work_order %></td>
+    <td><%= link_to 'Edit', edit_work_order_path(work_order) %></td>
+    <td><%= link_to 'Destroy', work_order, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New work_order', new_work_order_path %>

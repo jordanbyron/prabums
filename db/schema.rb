@@ -9,9 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091006021806) do
+ActiveRecord::Schema.define(:version => 20091128203157) do
 
   create_table "buildings", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes", :force => true do |t|
+    t.integer  "work_order_id"
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statuses", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -38,5 +53,19 @@ ActiveRecord::Schema.define(:version => 20091006021806) do
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+
+  create_table "work_orders", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.integer  "building_id"
+    t.string   "room_number"
+    t.string   "email"
+    t.string   "location_of_problem"
+    t.text     "problem"
+    t.integer  "status_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
