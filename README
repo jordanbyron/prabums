@@ -1,3 +1,9 @@
 Side project for my good friend Bob Hughes.
 
 You got prabums? Use prabums to track 'em
+
+== Setup
+
+Don't forget to setup ActionMailer:
+
+  http://api.rubyonrails.org/classes/ActionMailer/Base.html
