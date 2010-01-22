@@ -13,9 +13,9 @@
     <div id='outer_container'>
       <div id='container'>
       <div id='header'>
-      <%= image_tag 'prabums_icon.png' %><h1>prabums</h1>
+      <%= image_tag 'logo2.png' %><h1>prabums</h1>
       </div>
-      <div id="top_navigation"><%= render :partial => 'users/user_bar' %></div><%= navigation [:work_orders, :users, :buildings] %>
+      <div id="top_navigation"><%= render :partial => 'users/user_bar' %></div><%= navigation [:work_orders, :settings], :authorize => [:settings], :with => :administrator_required %>
       <div id='contents'>
         <%= yield  %>
         <div id="footer">

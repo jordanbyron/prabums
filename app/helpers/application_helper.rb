@@ -6,7 +6,7 @@ module ApplicationHelper
   end
   
   def version
-    "Version 0.1 Alpha (Brokked)"
+    "Version 0.2 (Smashed)"
   end
   
   def header(&block)

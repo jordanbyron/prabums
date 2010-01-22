@@ -1,0 +1,23 @@
+<p>
+  <b>Work order:</b>
+  <%=h @note.work_order_id %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%=h @note.created_by_id %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%=h @note.updated_by_id %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%=h @note.text %>
+</p>
+
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>

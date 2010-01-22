@@ -1,5 +1,6 @@
 # This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
+  layout "entry"
 
   # render new.rhtml
   def new
@@ -16,7 +17,7 @@ class SessionsController < ApplicationController
       self.current_user = user
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
-      redirect_back_or_default('/')
+      redirect_back_or_default(work_orders_path)
       flash[:notice] = "Logged in successfully"
     else
       note_failed_signin

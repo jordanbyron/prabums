@@ -23,7 +23,9 @@ class User < ActiveRecord::Base
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :ra, :rd, 
+                  :administrator, :service_provider, :building_id, :company, 
+                  :coverage_area
 
 
 
@@ -45,6 +47,44 @@ class User < ActiveRecord::Base
 
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
+  end
+
+  def self.find_by_building_and_room_number(building, room_number)    
+    ras = User.find(:all, :conditions => {:building_id => building.id})
+    
+    ras.reject! {|ra| !ra.covers_room?(room_number) }
+    
+    ras
+  end
+  
+  def work_orders
+    if ra
+      WorkOrder.all.reject {|w| !(covers_room?(w.stripped_room_number) && w.building_id == building_id) }
+    elsif rd
+      WorkOrder.all
+    elsif service_provider
+      
+    elsif administrator
+      WorkOrder.all
+    end
+  end
+  
+  def covers_room?(room_number)
+    range = coverage_area.split(',').delete_if{ |d| !d[/\d+-\d+/] }
+    
+    ranges = range.map {|r| r.split('-')[0].to_i..r.split('-')[1].to_i}
+    
+    ranges.each do |r|
+      return true if r === room_number
+    end
+    
+    ranges = coverage_area.split(',').delete_if{ |d| d[/\d+-\d+/] }
+    
+    ranges.each do |r|
+      return true if r.to_i == room_number
+    end
+    
+    false
   end
 
   protected

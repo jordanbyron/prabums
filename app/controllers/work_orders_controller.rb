@@ -1,8 +1,10 @@
 class WorkOrdersController < ApplicationController
+  before_filter :login_required, :except => [:new, :create, :thank_you]
+  
   # GET /work_orders
   # GET /work_orders.xml
   def index
-    @work_orders = WorkOrder.all
+    @work_orders = current_user.work_orders
   end
 
   # GET /work_orders/1
@@ -15,6 +17,8 @@ class WorkOrdersController < ApplicationController
   # GET /work_orders/new.xml
   def new
     @work_order = WorkOrder.new
+    
+    render :layout => "entry"
   end
 
   # GET /work_orders/1/edit
@@ -26,15 +30,15 @@ class WorkOrdersController < ApplicationController
   # POST /work_orders.xml
   def create
     @work_order = WorkOrder.new(params[:work_order])
-    
-   # @work_order.status = 
 
-    respond_to do |format|
-      if @work_order.save
-        format.html { redirect_to thank_you_path }
+    if @work_order.save
+      unless logged_in?
+        redirect_to thank_you_path 
       else
-        format.html { render :action => "new" }
+        redirect_to work_orders_path
       end
+    else
+      render :action => "new"
     end
   end
 

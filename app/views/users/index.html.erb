@@ -3,3 +3,23 @@
 <% header do %>
 <h1>Users</h1>
 <% end %>
+
+<table>
+  <tr>
+    <th>Login</th>
+    <th>Email</th>
+    <th>Name</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.login %></td>
+    <td><%= user.email %></td>
+    <td><%= user.name %></td>
+    <td><%= link_to "Edit", edit_user_path(user) %>
+  </tr>
+<% end %>
+</table>
+
+<p>
+  <%= link_to "New User", new_user_path %>
+</p>

@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  map.settings '/settings', :controller => :settings, :action => :index
   map.resources :notes
 
   map.resources :statuses

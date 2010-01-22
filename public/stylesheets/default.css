@@ -105,6 +105,7 @@ div.footer{
 div.footer a{
 	color: #fffeff;
 	margin-left: 5px;
+	margin-top: 10px;
 }
 
 div.footer input{
@@ -155,5 +156,6 @@ a:hover { color: #fff; }
 #errorExplanation ul li {
   font-size: 12px;
   list-style: square;
+	color: #000;
 }
 
