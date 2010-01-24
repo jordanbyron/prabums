@@ -36,7 +36,7 @@ module AuthenticatedSystem
     end
     
     def administrator_required
-      logged_in? && current_user.administrator
+      (logged_in? && current_user.administrator) || access_denied
     end
 
     # Filter method to enforce a login requirement.
@@ -69,6 +69,7 @@ module AuthenticatedSystem
       respond_to do |format|
         format.html do
           store_location
+          flash[:error] = "Please login to continue."
           redirect_to new_session_path
         end
         # format.any doesn't work in rails version < http://dev.rubyonrails.org/changeset/8987

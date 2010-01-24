@@ -1,5 +1,5 @@
 class WorkOrdersController < ApplicationController
-  before_filter :login_required, :except => [:new, :create, :thank_you]
+  before_filter :administrator_required, :except => [:new, :create, :thank_you]
   
   # GET /work_orders
   # GET /work_orders.xml

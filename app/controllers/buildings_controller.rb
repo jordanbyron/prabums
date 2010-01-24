@@ -1,4 +1,5 @@
 class BuildingsController < ApplicationController
+  before_filter :administrator_required
   current_tab :settings
   
   # GET /buildings

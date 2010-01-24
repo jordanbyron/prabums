@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :administrator_required
   current_tab :settings
   
   def index
